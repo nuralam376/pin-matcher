@@ -52,3 +52,11 @@ document.getElementById("clear").addEventListener("click", function () {
 	userInputNumber = "";
 	document.getElementById("userNumber").value = userInputNumber;
 });
+
+// Deletes the last character of the user input
+const deleteBtn = document.getElementById("delete");
+
+deleteBtn.addEventListener("click", function () {
+	userInputNumber = userInputNumber.slice(0, -1);
+	document.getElementById("userNumber").value = userInputNumber;
+});
