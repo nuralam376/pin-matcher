@@ -40,6 +40,7 @@ function checkPinWithUserInput() {
 	// Shows the message
 	if (pinNumber == userInput) {
 		document.getElementById("pin-matched").style.display = "block";
+		document.getElementById("pin-unmatched").style.display = "none";
 		document.getElementById("userNumber").value = "";
 		document.getElementById("pin").value = "";
 	} else {
