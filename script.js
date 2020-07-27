@@ -1,4 +1,6 @@
 let userInputNumber = "";
+const failedTry = document.getElementById("failed-try").innerText;
+let failedTryNumber = parseInt(failedTry);
 
 // Generates the 4 digit pin and set the pin in the input
 function generatePin() {
@@ -21,6 +23,12 @@ function handleUserInput(number) {
 function checkPinWithUserInput() {
 	const pin = document.getElementById("pin").value;
 
+	// Checks if any try left
+	if (failedTryNumber == 0) {
+		alert("No try left");
+		return;
+	}
+
 	// If the pin or tje user typed number is empty, alert a message
 	if (pin == "" || userInputNumber == "") {
 		alert("Pin and user input field cannot be empty");
@@ -33,6 +41,8 @@ function checkPinWithUserInput() {
 	if (pinNumber == userInput) {
 		document.getElementById("pin-matched").style.display = "block";
 	} else {
+		failedTryNumber--;
 		document.getElementById("pin-unmatched").style.display = "block";
+		document.getElementById("failed-try").innerText = failedTryNumber;
 	}
 }
