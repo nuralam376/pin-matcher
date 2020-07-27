@@ -1,6 +1,6 @@
 // Generates the 4 digit pin and set the pin in the input
 function generatePin() {
-	const pin = Math.round(Math.random() * 9000 + 1000);
+	const pin = Math.floor(Math.random() * 9000 + 1000);
 	document.getElementById("pin").value = pin;
 }
 
@@ -17,18 +17,26 @@ function handleUserInput(number) {
 	document.getElementById("userNumber").value = userInput;
 }
 
-// Checks the generated pin with the user typed number and shows the message
-function checkPinWithUserInput() {
+// Checks whether any try is left
+function checkTryLeft() {
 	const tryLeft = document.getElementById("tryLeftCount").innerText;
 	let tryLeftNumber = parseInt(tryLeft);
 
 	// Checks if any try left
+	if (tryLeftNumber != 0) {
+		return tryLeftNumber;
+	}
+	document.getElementById("pin-unmatched").style.display = "none";
+	alert("No try left");
+	return 0;
+}
+
+// Checks the generated pin with the user typed number and shows the message
+function checkPinWithUserInput() {
+	let tryLeftNumber = checkTryLeft();
 	if (tryLeftNumber == 0) {
-		document.getElementById("pin-unmatched").style.display = "none";
-		alert("No try left");
 		return;
 	}
-
 	const pin = document.getElementById("pin").value;
 	const userInput = document.getElementById("userNumber").value;
 
@@ -39,7 +47,7 @@ function checkPinWithUserInput() {
 		return;
 	}
 
-	// Shows and hide the message
+	// Check, Shows and hide the message
 	if (pin == userInput) {
 		document.getElementById("pin-matched").style.display = "block";
 		document.getElementById("pin-unmatched").style.display = "none";
