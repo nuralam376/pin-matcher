@@ -31,7 +31,7 @@ function checkPinWithUserInput() {
 
 	// If the pin or tje user typed number is empty, alert a message
 	if (pin == "" || userInputNumber == "") {
-		alert("Pin and user input field cannot be empty");
+		alert("Pin and User input field cannot be empty");
 		return;
 	}
 	const pinNumber = parseInt(pin);
@@ -40,6 +40,8 @@ function checkPinWithUserInput() {
 	// Shows the message
 	if (pinNumber == userInput) {
 		document.getElementById("pin-matched").style.display = "block";
+		document.getElementById("userNumber").value = "";
+		document.getElementById("pin").value = "";
 	} else {
 		failedTryNumber--;
 		document.getElementById("pin-unmatched").style.display = "block";
