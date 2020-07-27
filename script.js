@@ -46,3 +46,9 @@ function checkPinWithUserInput() {
 		document.getElementById("failed-try").innerText = failedTryNumber;
 	}
 }
+
+// Clears the current user input
+document.getElementById("clear").addEventListener("click", function () {
+	userInputNumber = "";
+	document.getElementById("userNumber").value = userInputNumber;
+});
