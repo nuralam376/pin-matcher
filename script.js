@@ -48,8 +48,8 @@ function checkPinWithUserInput() {
 	} else {
 		failedTryNumber--;
 		document.getElementById("pin-unmatched").style.display = "block";
-		document.getElementById("failed-try").innerText = failedTryNumber;
 	}
+	document.getElementById("failed-try").innerText = failedTryNumber;
 }
 
 // Clears the current user input
