@@ -39,10 +39,12 @@ function checkPinWithUserInput() {
 
 	// Shows the message
 	if (pinNumber == userInput) {
+		userInputNumber = "";
 		document.getElementById("pin-matched").style.display = "block";
 		document.getElementById("pin-unmatched").style.display = "none";
-		document.getElementById("userNumber").value = "";
+		document.getElementById("userNumber").value = userInputNumber;
 		document.getElementById("pin").value = "";
+		failedTryNumber = 3;
 	} else {
 		failedTryNumber--;
 		document.getElementById("pin-unmatched").style.display = "block";
