@@ -12,13 +12,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input id = "pin" class="form-control" type="text">
+                    <input id = "pin" class="form-control bg-secondary" type="text" disabled>
                     <button onclick = "generatePin()" class="generate-btn">Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input id = "userNumber" class="form-control" type="text">
+                    <input id = "userNumber" class="form-control bg-secondary" type="text" disabled>
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row">
@@ -42,7 +42,7 @@
                                 <div class="button">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
+                                <button onclick = "checkPinWithUserInput()" type="submit" class="submit-btn">Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>

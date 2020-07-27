@@ -16,3 +16,23 @@ function handleUserInput(number) {
 	userInputNumber += number.toString();
 	document.getElementById("userNumber").value = userInputNumber;
 }
+
+// Checks the generated pin with the user typed number and shows the message
+function checkPinWithUserInput() {
+	const pin = document.getElementById("pin").value;
+
+	// If the pin or tje user typed number is empty, alert a message
+	if (pin == "" || userInputNumber == "") {
+		alert("Pin and user input field cannot be empty");
+		return;
+	}
+	const pinNumber = parseInt(pin);
+	const userInput = parseInt(userInputNumber);
+
+	// Shows the message
+	if (pinNumber == userInput) {
+		document.getElementById("pin-matched").style.display = "block";
+	} else {
+		document.getElementById("pin-unmatched").style.display = "block";
+	}
+}
